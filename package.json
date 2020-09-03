@@ -1,6 +1,6 @@
 {
   "name": "@mrarm/grpc-common",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Utilities for easily creating JSON RPC services using grpc",
   "type": "module",
   "main": "build/index.js",
@@ -9,6 +9,7 @@
   "author": "MCMrARM",
   "license": "MIT",
   "scripts": {
+    "prepare": "tsc",
     "build": "tsc"
   },
   "dependencies": {
@@ -17,5 +18,7 @@
   "devDependencies": {
     "typescript": "^4.0.2"
   },
-  "files": ["build/**/*"]
+  "files": [
+    "build/**/*"
+  ]
 }
