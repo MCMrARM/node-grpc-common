@@ -21,5 +21,5 @@ export function registerSimpleService(grpc: grpc.Server, prefix: string, methods
         def[k] = createJsonMethodDescription(prefix + "/" + k);
         impl[k] = createPromiseCallHandler(methods[k]);
     }
-    grpc.addService(def, methods);
+    grpc.addService(def, impl);
 }
