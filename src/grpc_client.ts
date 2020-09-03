@@ -23,4 +23,4 @@ export function makeSimpleClientConstructor<T extends {[key: string]: ClientMeth
     return ret;
 }
 
-export type extractClientType<Type> = Type extends (new () => SimpleClient<infer T>) ? SimpleClient<T> : never
+export declare type extractClientType<Type extends (new (...args: any) => any)> = Type extends (new (...args: any) => infer T) ? T : never
