@@ -1,6 +1,6 @@
-import grpc from "grpc";
+import grpc from "@grpc/grpc-js";
 import {promisify} from "util";
-import {createJsonMethodDescription} from "./grpc_common";
+import {createJsonMethodDescription} from "./grpc_common.js";
 
 interface ClientMethod<Req, Res> {}
 type extractReq<Type> = Type extends ClientMethod<infer Req, any> ? Req : never

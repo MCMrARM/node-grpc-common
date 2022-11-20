@@ -1,9 +1,13 @@
-import grpc from "grpc";
+import grpc, {Metadata} from "@grpc/grpc-js";
 
 export class ServiceError implements grpc.ServiceError {
     public name: string = 'ServiceError';
+    details: string;
+    metadata: Metadata = new Metadata();
 
-    constructor(public code: grpc.status, public message: string) {}
+    constructor(public code: grpc.status, public message: string) {
+        this.details = message;
+    }
 }
 
 function serializeJson(obj: object) {
