@@ -1,6 +1,6 @@
 {
   "name": "@mrarm/grpc-common",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Utilities for easily creating JSON RPC services using grpc",
   "type": "module",
   "main": "build/index.js",

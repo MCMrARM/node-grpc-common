@@ -20,7 +20,7 @@ export function registerSimpleService(grpc: grpc.Server, prefix: string, methods
     let def: {[key: string]: grpc.MethodDefinition<object, object>} = {};
     let impl: {[key: string]: grpc.handleUnaryCall<any, any>} = {};
     for (let k of Object.keys(methods)) {
-        def[k] = createJsonMethodDescription(prefix + "/" + k);
+        def[k] = createJsonMethodDescription("/" + prefix + "/" + k);
         impl[k] = createPromiseCallHandler(methods[k]);
     }
     grpc.addService(def, impl);

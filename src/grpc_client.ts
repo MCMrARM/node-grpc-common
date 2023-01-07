@@ -16,7 +16,7 @@ export function defineClientMethod<Req, Res>(): ClientMethod<Req, Res> {
 export function makeSimpleClientConstructor<T extends {[key: string]: ClientMethod<any, any>}>(prefix: string, methods: T): (new (address: string, credentials: grpc.ChannelCredentials, options?: object) => SimpleClient<T>) {
     let def: {[key: string]: grpc.MethodDefinition<object, object>} = {};
     for (let k of Object.keys(methods))
-        def[k] = createJsonMethodDescription(prefix + "/" + k);
+        def[k] = createJsonMethodDescription("/" + prefix + "/" + k);
     let ret = grpc.makeGenericClientConstructor(def, prefix, {}) as any;
     for (let k of Object.keys(methods))
         ret.prototype[k] = promisify(ret.prototype[k]);
